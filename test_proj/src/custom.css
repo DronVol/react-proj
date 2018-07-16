@@ -1,0 +1,155 @@
+.vap{
+	border: 4px solid black;
+	padding: 5px
+}
+.main{
+	height: 100%;
+	width: 100%
+}
+.tiles_wrapper{
+	width:90%;
+	height:90%;
+	margin-left: 5%;
+	margin-top: 5%
+}
+.component{
+	height: 1920px!important;
+	width: 1080px!imporant;
+}
+.item_1{
+	border: 4px dashed black;
+}
+.item_2{
+	border: 4px dashed green;
+}
+
+.item_3{
+	border: 4px dashed red;
+}
+.tiles_wrapper__item{
+	width: inherit;
+	height:300px;
+	margin: 3px;
+	background-color: grey;
+	display: inline-flex;
+	border-radius: 5px;
+	margin-top: 5px;
+}
+.header_vap{
+	font-size: 20px;
+	color: white;
+	background-color: grey;
+	text-align: center;
+}
+.pop > div{
+	border: 4px dashed red;
+}
+
+.graph{
+	min-width:95%;
+	min-height:50%
+}
+.item_4{
+	width:inherit;
+	height:300px;
+}
+
+.content{
+	display: inline-flex;
+}
+.tiles_wrapper_1{
+	display: grid;
+	grid-template-columns: 33.333% 33.333% 33.333%;
+}
+.tiles_wrapper_2{
+	display: grid;
+	grid-template-columns: 50% 50%;
+}
+
+.graph a{
+	visibility: hidden;
+}
+.tiles__wrapper__tile{
+	width: 90%;
+}
+
+#wrapper{
+	overflow: hidden;
+	height: 75%;
+}
+/* * {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+html {
+	-ms-touch-action: none;
+}
+
+body,ul,li {
+	padding: 0;
+	margin: 0;
+	border: 0;
+}
+
+body {
+	font-size: 12px;
+	font-family: ubuntu, helvetica, arial;
+	overflow: hidden;*/  /* this is important to prevent the whole page to bounce */
+/*}*/
+
+/* #wrapper{
+	overflow: hidden;
+	height: 80%;
+}
+
+#header {
+	position: absolute;
+	z-index: 2;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 45px;
+	line-height: 45px;
+	background: #CD235C;
+	padding: 0;
+	color: #eee;
+	font-size: 20px;
+	text-align: center;
+	font-weight: bold;
+}
+
+#footer {
+	position: absolute;
+	z-index: 2;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 48px;
+	background: #444;
+	padding: 0;
+	border-top: 1px solid #444;
+}
+
+#scroller {
+	position: absolute;
+	z-index: 1;
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+	width: 100%;
+	-webkit-transform: translateZ(0);
+	-moz-transform: translateZ(0);
+	-ms-transform: translateZ(0);
+	-o-transform: translateZ(0);
+	transform: translateZ(0);
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	-webkit-text-size-adjust: none;
+	-moz-text-size-adjust: none;
+	-ms-text-size-adjust: none;
+	-o-text-size-adjust: none;
+	text-size-adjust: none;
+}  */
