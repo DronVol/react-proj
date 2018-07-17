@@ -32,8 +32,9 @@
 	margin: 3px;
 	background-color: grey;
 	display: inline-flex;
-	border-radius: 5px;
+	border-radius: 4px;
 	margin-top: 5px;
+	padding: 17.5px;
 }
 .header_vap{
 	font-size: 20px;
