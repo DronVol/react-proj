@@ -3,6 +3,7 @@ import MyTile from './Tile.js';
 import MyGraph from './Graph.js';
 import MyTable from './Table.js';
 import MyPie from './innerPie.js';
+import MyCategorical from './bothSidesCategorical';
 
 class MyBody extends Component {
     constructor(props){
@@ -44,6 +45,18 @@ class MyBody extends Component {
                 />
                 <MyTable />
             </div>
+            <MyCategorical
+                grId={"cat"}
+                geometry={["200px, 300px"]}
+                posColor={"#6EC7F7"}
+                negColor={"#61db96"}
+                data={[
+                {"category": "CIB", "currFact": "100", "val": "13", "drawVal": "", "prevFact": "110"},
+                {"category": "SBI", "currFact": "-150", "val": "-5", "drawVal": "", "prevFact": "110"},
+                {"category": "ДРПА", "currFact": "130", "val": "11", "drawVal": "", "prevFact": "110"},
+                {"category": "КБ", "currFact": "-100", "val": "-3", "drawVal": "", "prevFact": "110"}
+            ]}
+            />
         </div>
     );
   }
