@@ -1,32 +1,16 @@
 import React, { Component } from 'react';
-import './custom.css';
-require('../node_modules/amcharts3/amcharts/amcharts.js');
-require('../node_modules/amcharts3/amcharts/pie.js');
-require('../node_modules/amcharts3/amcharts/funnel.js');
-require('../node_modules/amcharts3/amcharts/gantt.js');
-require('../node_modules/amcharts3/amcharts/gauge.js');
-require('../node_modules/amcharts3/amcharts/radar.js');
-require('../node_modules/amcharts3/amcharts/serial.js');
-require('../node_modules/amcharts3/amcharts/xy.js');
+import 'amcharts3';
+import 'amcharts3/amcharts/serial';
+import 'amcharts3/amcharts/themes/light';
+import 'amcharts3/amcharts/plugins/export/export.min.js';
+import 'amcharts3/amcharts/plugins/export/export.css';
+import AmCharts from '@amcharts/amcharts3-react';
 
-class MyCategorical extends Component {
+class Categorical extends Component {
     constructor(props){
         super(props);
     }
-    /*componentDidMount() {
-        var centralValue = this.props.centralValue;
-        if (centralValue.isNeeded){
-            document.getElementById("centralValue").innerHTML = centralValue.val;
-        }
-    }*/
     render() {
-
-        var AmCharts = require("@amcharts/amcharts3-react");
-
-        var divStyle = {width: this.props.geometry[0], height: this.props.geometry[1]};
-
-        //window.alert(this.props.graphs.test+" "+params["test"]);
-
         var amchartsSettings =
         {
                 "type": "serial",
@@ -77,16 +61,16 @@ class MyCategorical extends Component {
                         "fillAlphas": 1,
                         "color": "#cdcfd2",
                         "lineThickness": 0,
-                        "fillColors": this.props.posColor,
+                        "fillColors": this.props.options.posColor,
                         "fixedColumnWidth": 15,
                         "id": "AmGraph-1",
                         "labelOffset": 10,
                         "fontSize": 14,
                         "labelPosition": "right",
                         "labelText": "[[val]]",
-                        "lineColor": this.props.posColor,
-                        "negativeFillColors": this.props.negColor,
-                        "negativeLineColor": this.props.negColor,
+                        "lineColor": this.props.options.posColor,
+                        "negativeFillColors": this.props.options.negColor,
+                        "negativeLineColor": this.props.options.negColor,
                         "title": "graph 1",
                         "type": "column",
                         "valueField": "val"
@@ -109,30 +93,21 @@ class MyCategorical extends Component {
                 "allLabels": [],
                 "balloon": {},
                 "titles": [],
-                "listeners": [/*  {
-                    "event":"init",
-                    "method":function(event){
-                            var dp = event.chart.dataProvider;
-                            for(i = 0; i < dp.length; i++){
-                                dp[i].val = (+event.chart.dataProvider[i].currFact-+event.chart.dataProvider[i].prevFact).toFixed(2);
-                                dp[i].drawVal = event.chart.dataProvider[i].val>0 ? "+"+event.chart.dataProvider[i].val:event.chart.dataProvider[i].val;
-                            }
-                            event.chart.dataProvider = dp; event.chart.validateData();
-                        }
-                }   */],
-                "dataProvider": this.props.data
+                "listeners": [],
+                "dataProvider": this.props.options.data
 
 
             }
-
-        var chart = AmCharts.makeChart(this.props.grId, amchartsSettings);
-
-        return (
-                <div className="graph_wrapper__item" style={{"height":"300px"}}>
-                    <div id={this.props.grId} className="graph" style={divStyle}></div>
+            return (
+                <div
+                    className="categorical_wrapper__item"
+                    style={(typeof this.props.options.wrapperStyles !== "undefined") ? this.props.options.wrapperStyles : {}}>
+                    <AmCharts.React style={{"height": "300px"}}
+                        options={amchartsSettings}
+                    />
                 </div>
-        );
+            );
     }
 }
 
-export default MyCategorical;
+export default Categorical;

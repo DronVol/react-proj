@@ -1,81 +1,84 @@
 import React, { Component } from 'react';
-import './custom.css';
+import 'amcharts3';
+import 'amcharts3/amcharts/serial';
+import 'amcharts3/amcharts/pie';
+import 'amcharts3/amcharts/themes/light';
+import 'amcharts3/amcharts/plugins/export/export.min.js';
+import 'amcharts3/amcharts/plugins/export/export.css';
+import AmCharts from '@amcharts/amcharts3-react';
 
-class MyPie extends Component {
-    constructor(props){
+/*require('../node_modules/amcharts3/amcharts/amcharts.js');
+require('../node_modules/amcharts3/amcharts/pie.js');
+require('../node_modules/amcharts3/amcharts/funnel.js');
+require('../node_modules/amcharts3/amcharts/gantt.js');
+require('../node_modules/amcharts3/amcharts/gauge.js');
+require('../node_modules/amcharts3/amcharts/radar.js');
+require('../node_modules/amcharts3/amcharts/serial.js');
+require('../node_modules/amcharts3/amcharts/xy.js');*/
+
+//var AmCharts = require("@amcharts/amcharts3-react");
+
+class Pie extends Component {
+
+    constructor(props) {
         super(props);
     }
-    componentDidMount() {
-        var centralValue = this.props.centralValue;
-        if (centralValue.isNeeded){
-            document.getElementById("centralValue").innerHTML = centralValue.val;
+
+    centerValue = (value) => {
+        if(typeof value !== "undefined") {
+            return (
+                <div
+                    style={(typeof this.props.options.centerValue.styles !== "undefined") ? this.props.options.centerValue.styles : {}}
+                    className="pie_wrapper__center_value">
+
+                    <span>{value}</span>
+                </div>
+            )
         }
     }
+
     render() {
-        require('../node_modules/amcharts3/amcharts/amcharts.js');
-        require('../node_modules/amcharts3/amcharts/pie.js');
-        require('../node_modules/amcharts3/amcharts/funnel.js');
-        require('../node_modules/amcharts3/amcharts/gantt.js');
-        require('../node_modules/amcharts3/amcharts/gauge.js');
-        require('../node_modules/amcharts3/amcharts/radar.js');
-        require('../node_modules/amcharts3/amcharts/serial.js');
-        require('../node_modules/amcharts3/amcharts/xy.js');
-
-        var AmCharts = require("@amcharts/amcharts3-react");
-
-
-        var colors = this.props.colors;
-        var data = this.props.data;
-        var centralValue = this.props.centralValue;
-        var geometry = this.props.geometry;
-
-        var divStyle = {width: geometry[0], height: geometry[1]};
-
-        var iD = this.props.grId;
-
-        var mera = this.props.mera;
-        //window.alert(this.props.graphs.test+" "+params["test"]);
-
-        var amchartsSettings =
-        {
-            "type": "pie",
-            "fontFamily": "'Open Sans', sans-serif",
-            "categoryField": "category",
-            "balloonText":"[[category]]:<br>[[val]] "+mera,
-            "thousandsSeparator": " ",
-            "startDuration":0,
-            "outlineThickness":1,
-            "outlineAlpha":1,
-            "outlineColor":"#36414d",
-            "sequencedAnimation":false,
-            "percentPrecision":0,
-            "labelText": "[[val]]",
-            "titleField": "category",
-            "valueField": "val",
-            "allLabels": [],
-            "color":"#a1abb8",
-            "innerRadius":"70%",
-            "fontSize":13,
-            "balloon": {},
-            "pullOutRadius": "0%",
-            "startRadius": "50%",
-            "labelTickAlpha": 0.2,
-            "labelTickColor": "#a1abb8",
-            "labelRadius": 10,
-            "titles": [],
-            "colors":  colors,
-            "dataProvider": data
-        }
-
-        var chart = AmCharts.makeChart(iD, amchartsSettings);
-
         return (
-                <div className="graph_wrapper__item">
-                    <div id="centralValue" style={{"position":"relative","top": "28.5%", "left": "0"}}></div>
-                    <div id={iD} className="graph" style={divStyle}></div>
-                </div>
+            <div
+                className="pie_wrapper__item"
+                style={(typeof this.props.options.wrapperStyles !== "undefined") ? this.props.options.wrapperStyles : {}}>
+
+                {this.centerValue(this.props.options.centerValue.text)}
+
+                <AmCharts.React style={{"height": "300px"}}
+                    options={{
+                        "type": "pie",
+                        "fontFamily": "'Open Sans', sans-serif",
+                        "categoryField": "category",
+                        "balloonText":"[[category]]:<br>[[val]] " + this.props.options.mera,
+                        "thousandsSeparator": " ",
+                        "startDuration":0,
+                        "outlineThickness":1,
+                        "outlineAlpha":1,
+                        "outlineColor":"#36414d",
+                        "sequencedAnimation":false,
+                        "percentPrecision":0,
+                        "labelText": this.props.options.labelText,
+                        "titleField": "category",
+                        "valueField": "val",
+                        "allLabels": [],
+                        "color":"#a1abb8",
+                        "innerRadius":"70%",
+                        "fontSize":13,
+                        "balloon": {},
+                        "pullOutRadius": "0%",
+                        "startRadius": "50%",
+                        "labelTickAlpha": 0.2,
+                        "labelTickColor": "#a1abb8",
+                        "labelRadius": 10,
+                        "titles": [],
+                        "colors":  this.props.options.colors,
+                        "dataProvider": this.props.options.data
+                    }}
+                />
+            </div>
         );
     }
 }
 
-export default MyPie;
+export default Pie;
