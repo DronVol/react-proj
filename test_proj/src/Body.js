@@ -4,6 +4,7 @@ import MyGraph from './Graph.js';
 import MyTable from './Table.js';
 import MyPie from './innerPie.js';
 import MyCategorical from './bothSidesCategorical';
+import MyMultiLine from './multiLine';
 
 class MyBody extends Component {
     constructor(props){
@@ -57,6 +58,13 @@ class MyBody extends Component {
                 {"category": "КБ", "currFact": "-100", "val": "-3", "drawVal": "", "prevFact": "110"}
             ]}
             />
+        <MyMultiLine
+            grId={"line"}
+            geometry={["200px, 300px"]}
+            colors={["#61DB96","#DFDFDF"]}
+            categories={["2017", "2018", "2019"]}
+            data={[[10, 6, 11], [9,7,12]]}
+        />
         </div>
     );
   }
