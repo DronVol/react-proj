@@ -94,7 +94,7 @@ class MultiLine extends Component {
                     data.push(dataCurr);
                 }
                 amchartsSettings.dataProvider = data;
-                console.log(amchartsSettings);
+                //console.log(amchartsSettings);
                 return (
                     <div
                         className="multiline_wrapper__item"

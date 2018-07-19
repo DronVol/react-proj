@@ -7,7 +7,7 @@ var iScroll = require('iscroll');
 
 function resize(){
     var iScroll = require('iscroll');
-    console.log("resized window");
+    //console.log("resized window");
 }
 
 window.addEventListener('resize', resize);
@@ -183,7 +183,7 @@ class MyTable extends Component {
     })
   }
   onScrollStart() {
-    console.log("iScroll starts scrolling")
+    //console.log("iScroll starts scrolling")
   }
   render() {
       const divStyle = {

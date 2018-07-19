@@ -6,6 +6,10 @@ import Pie from './innerPie.js';
 import Categorical from './bothSidesCategorical';
 import MultiLine from './multiLine';
 import Waterfall from './waterfall';
+import ColumnLines from './columnLines';
+import JoinColumns from './joinColumns';
+import JoinMultyColumns from './joinMultyColumns';
+import HColumnCompare from './hColumnsCompare';
 
 class MyBody extends Component {
     constructor(props){
@@ -85,6 +89,40 @@ class MyBody extends Component {
 
         }}
     />
+    <ColumnLines
+        options={{
+            grId: "col",
+            geometry: ["200px, 300px"],
+            lineColor: "#6EC7F7",
+            columnColor: "#61DB96",
+            data:[{category:"2017", column:60, line:80},{category:"2018", column:50, line:90},{category:"2019", column:50, line:60},{category:"2020", column:30, line:40}]
+        }}
+    />
+<JoinColumns
+    options={{
+        geometry: ["200px, 300px"],
+        planColor: "#61DB96",
+        factColor: "#F5A623",
+        category: ["2017", "2018", "2019"],
+        plan: [10, 20, 30],
+        fact: [30,20,10]
+    }}
+/>
+<JoinMultyColumns
+    options={{
+        geometry: ["200px, 300px"],
+        colors: ["#61DB96", "#F5A623", "#6EC7F7"],
+        category: ["2017", "2018", "2019"],
+        data: [[10, 20, 30],[30,20,10],[20,20,20]]
+    }}
+/>
+<HColumnCompare
+    options={{
+        geometry: ["200px, 300px"],
+        colors: ["#61DB96", "#A0AAB7", "#6EC7F7"],
+        data: [{category:"2017", val:[10, 20, 30]},{category:"2018", val:[30,20,10]},{category:"2019", val:[20,20,20]}]
+    }}
+/>
         </div>
     );
   }
