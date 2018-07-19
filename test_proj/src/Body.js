@@ -5,6 +5,7 @@ import MyTable from './Table.js';
 import Pie from './innerPie.js';
 import Categorical from './bothSidesCategorical';
 import MultiLine from './multiLine';
+import Waterfall from './waterfall';
 
 class MyBody extends Component {
     constructor(props){
@@ -75,6 +76,15 @@ class MyBody extends Component {
                 data: [[10, 6, 11], [9,7,12]]
             }}
         />
+    <Waterfall
+        options={{
+            grId: "wat",
+            geometry: ["200px, 300px"],
+            startValue: 60,
+            data: [{name:"2017", val:70},{name:"Прирост", val:85},{name:"Убыток", val:80},{name:"2018", val:80}]
+
+        }}
+    />
         </div>
     );
   }
